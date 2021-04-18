@@ -11,6 +11,20 @@ import array as arr
 import random
 import datetime
 import csv
+
+def sort_array():
+        for j in range(array_length):
+            dummy_max = third_array[j];
+            for i in range(j+1, array_length):
+                if third_array[i] > dummy_max:
+                    dummy_max = third_array[i] 
+                    third_array[i] = third_array[j]
+                    third_array[j] = dummy_max
+
+def fill_random_array():
+        for i in range(array_length):
+            third_array[i] = random.randrange((array_max * -1), array_max)
+
 array_min = 10
 array_max = 100000
 
@@ -24,27 +38,18 @@ for k in range(len(length)):
     array_length = length[k]
     third_array = [0 for i in range(array_length)]   
 
-
+    fill_random_array()
 
     start_time = datetime.datetime.now()
-    for i in range(array_length):
-        third_array[i] = random.randrange((array_max * -1), array_max)
-
 
 #for i in range(j+1, array_length):
     #print(third_array)    
 #Here we choose a second array algorithm    
-    for j in range(array_length):
-        dummy_max = third_array[j];
-        for i in range(j+1, array_length):
-             if third_array[i] > dummy_max:
-                 dummy_max = third_array[i] 
-                 third_array[i] = third_array[j]
-                 third_array[j] = dummy_max
-                 
+    sort_array()
+    
     end_time = datetime.datetime.now()
     print("We have sorted the array")
-    print(third_array)
+    #print(third_array)
     print("Arrays length", array_length)   
     time_elapsed = (end_time - start_time)
     print("Time elapsed",time_elapsed) 
