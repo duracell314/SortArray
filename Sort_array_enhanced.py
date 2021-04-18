@@ -11,7 +11,7 @@ import array as arr
 import random
 import datetime
 import csv
-
+#cazzodicane
 def sort_array():
         for j in range(array_length):
             dummy_max = third_array[j];
